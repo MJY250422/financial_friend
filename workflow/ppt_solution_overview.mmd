@@ -1,0 +1,34 @@
+graph TB
+    User["👤 사용자"]
+    
+    subgraph System["💼 금융 친구 시스템"]
+        News["📰 뉴스 질의/요약 요청<br/><i>실시간 금융 뉴스 검색 및 요약 제공</i>"]
+        Term["📖 금융 용어 해설 요청<br/><i>쉬운 금융 용어 설명 제공</i>"]
+    end
+    
+    subgraph Core["🔧 핵심 기술"]
+        RAG["🧠 RAG<br/><b>검색 증강 생성</b><br/>최신 뉴스 검색 및<br/>정확한 답변 생성"]
+        Agent["🔀 Agent<br/><b>지능형 에이전트</b><br/>사용자 의도 파악 및<br/>자동 작업 수행"]
+        Dict["📚 금융사전<br/><b>용어 데이터베이스</b><br/>체계화된 금융 용어<br/>지식 베이스"]
+    end
+    
+    Data["💾 뉴스 API / DB<br/><i>외부 데이터 소스</i>"]
+    
+    User -->|요청| System
+    System -->|활용| Core
+    Core -->|데이터 조회| Data
+    
+    News -.->|사용| RAG
+    News -.->|사용| Agent
+    Term -.->|사용| Dict
+    Term -.->|사용| Agent
+    
+    style User fill:#3b82f6,stroke:#1e40af,stroke-width:3px,color:#fff
+    style System fill:#6366f1,stroke:#4338ca,stroke-width:2px,color:#fff
+    style Core fill:#8b5cf6,stroke:#6d28d9,stroke-width:2px,color:#fff
+    style Data fill:#475569,stroke:#334155,stroke-width:2px,color:#fff
+    style RAG fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
+    style Agent fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff
+    style Dict fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#fff
+    style News fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#000
+    style Term fill:#f3e8ff,stroke:#8b5cf6,stroke-width:2px,color:#000

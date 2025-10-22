@@ -1,0 +1,27 @@
+graph LR
+    subgraph WF1["① 금융 용어집 구축"]
+        A1["데이터 가공<br/>금융기관 용어집"] --> A2["처리 및 임베딩<br/>e5-small-v2<br/>bge-small"] --> A3["저장<br/>ChromaDB<br/>SQLite"]
+    end
+    
+    subgraph WF2["② Agent 시스템"]
+        B1["의도 분석<br/>LLM 기반<br/>라우팅"] --> B2["검색/캐싱<br/>Redis<br/>ChromaDB"] --> B3["응답 생성<br/>GPT-4<br/>Llama-3"] --> B4["검증/필터링<br/>출처+신뢰도<br/>안전성"]
+    end
+    
+    subgraph WF3["③ 사용자 관리 DB"]
+        C1["UI<br/>Streamlit<br/>웹앱"] --> C2["프로필/로깅<br/>SQLite<br/>피드백 수집"] --> C3["분석/모니터링<br/>패턴 분석<br/>대시보드"]
+    end
+    
+    %% 워크플로우 간 상호작용
+    A3 -.벡터 DB 제공.-> B2
+    C1 ==질의 요청==> B1
+    B4 ==응답 전달==> C1
+    
+    
+    %% 스타일링
+    classDef workflow1 fill:#e1f5ff,stroke:#0288d1,stroke-width:3px,color:#01579b
+    classDef workflow2 fill:#fff4e1,stroke:#f57c00,stroke-width:3px,color:#e65100
+    classDef workflow3 fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#1b5e20
+    
+    class A1,A2,A3 workflow1
+    class B1,B2,B3,B4 workflow2
+    class C1,C2,C3 workflow3

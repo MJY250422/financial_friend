@@ -1,0 +1,44 @@
+graph TB
+    subgraph WF1["① 금융 용어집 구축 워크플로우"]
+        A1["데이터 가공<br/>━━━━━━━━━━━<br/>금융기관 용어집"]
+        A2["데이터 처리 및 임베딩<br/>━━━━━━━━━━━<br/>전처리 + 벡터화<br/>e5-small-v2 / bge-small"]
+        A3["저장<br/>━━━━━━━━━━━<br/>ChromaDB + SQLite"]
+        
+        A1 --> A2
+        A2 --> A3
+    end
+    
+    subgraph WF2["② Agent 시스템 워크플로우"]
+        B1["의도 분석 및 라우팅<br/>━━━━━━━━━━━<br/>LLM 기반 분석"]
+        B2["검색 및 캐싱<br/>━━━━━━━━━━━<br/>Redis + ChromaDB"]
+        B3["LLM 응답 생성<br/>━━━━━━━━━━━<br/>GPT-4 / Llama-3"]
+        B4["검증 및 필터링<br/>━━━━━━━━━━━<br/>출처 + 신뢰도 + 안전성"]
+        
+        B1 --> B2
+        B2 --> B3
+        B3 --> B4
+    end
+    
+    subgraph WF3["③ 사용자 관리 데이터베이스 워크플로우"]
+        C1["사용자 인터페이스<br/>━━━━━━━━━━━<br/>Streamlit 웹앱"]
+        C2["프로필 및 로깅<br/>━━━━━━━━━━━<br/>SQLite 저장"]
+        C3["분석 및 모니터링<br/>━━━━━━━━━━━<br/>패턴 분석 + 대시보드"]
+        
+        C1 --> C2
+        C2 --> C3
+    end
+    
+    %% 워크플로우 간 상호작용
+    A3 -.벡터 DB 제공.-> B2
+    C1 ==질의 요청==> B1
+    B4 ==응답 전달==> C1
+    
+    
+    %% 스타일링
+    classDef workflow1 fill:#e1f5ff,stroke:#0288d1,stroke-width:3px,color:#01579b
+    classDef workflow2 fill:#fff4e1,stroke:#f57c00,stroke-width:3px,color:#e65100
+    classDef workflow3 fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#1b5e20
+    
+    class A1,A2,A3 workflow1
+    class B1,B2,B3,B4 workflow2
+    class C1,C2,C3 workflow3

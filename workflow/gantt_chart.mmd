@@ -1,0 +1,38 @@
+gantt
+    title 뉴스 기반 RAG 금융친구 AI 프로젝트 (2025.10.13 ~ 11.28)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    excludes weekends
+
+    section 프로젝트 세팅
+    환경 세팅 및 역할 분담        :done, setup, 2025-10-13, 3d
+
+    section 데이터 수집 및 전처리
+    뉴스 데이터 수집 모델 설계     :active, collect, 2025-10-16, 6d
+    텍스트 정제 및 문단 분할 모델링 : refine, after collect, 5d
+    개체명 인식(NER) 모델          : ner, after refine, 4d
+
+    section Glossary 생성 모델링
+    Glossary 데이터 구조 설계       : glossary_schema, 2025-10-28, 2d
+    Glossary 자동 확장 모델링       : glossary_auto, after glossary_schema, 5d
+    벡터화 및 색인 모델링           : vectorize, after glossary_auto, 4d
+
+    section 임베딩 및 RAG 검색 모델링
+    임베딩 모델 선택 및 학습        : embed_train, 2025-11-04, 4d
+    하이브리드 검색 구조 설계       : hybrid_search, after embed_train, 4d
+
+    section LLM 기반 응답 생성 모델링
+    RAG 프롬프트 템플릿 설계        : prompt_template, 2025-11-10, 4d
+    응답 품질 제어 모델링           : quality_control, after prompt_template, 4d
+
+    section Agent 라우팅 및 대화 흐름
+    의도 분류(Intention Classification) : intent_model, 2025-11-14, 4d
+    대화 흐름 시나리오 모델링         : dialog_flow, after intent_model, 4d
+
+    section 평가 및 검증
+    응답 정확도 평가 모델           : evaluation, 2025-11-20, 4d
+    사용자 피드백 기반 개선 모델     : feedback_loop, after evaluation, 4d
+
+    section 통합 및 발표 준비
+    시스템 통합 테스트              : integration, 2025-11-25, 3d
+    발표자료 제작 및 리허설         : presentation, after integration, 2d

@@ -1,0 +1,31 @@
+graph TB
+    User["👤 사용자"]
+    
+    subgraph Core["🔧 핵심 기술"]
+        direction LR
+        Agent["🔀 Agent<br/><b>지능형 에이전트</b><br/>뉴스 기사를 통한<br/>자동 업데이트 수행"]
+        RAG["🧠 RAG<br/><b>검색 증강 생성</b><br/>금융 사전 기반<br/>정확한 답변 생성"]
+    end
+    
+    subgraph System["💼 금융 친구 시스템"]
+        direction LR
+        News["📰 뉴스 질의/요약<br/><i>실시간 금융 뉴스 검색 및 요약 제공</i>"]
+        Term["📖 금융 용어 해설<br/><i>쉬운 금융 용어 설명 제공</i>"]
+
+    end
+    
+    Data["👤 사용자<br/><i>사용자에게 응답 전달</i>"]
+    
+    User -->|요청| Core
+    Agent -->|활용| News
+    RAG -->|활용| Term
+    System -->|응답| Data
+        
+    style User fill:#3b82f6,stroke:#1e40af,stroke-width:3px,color:#fff
+    style System fill:#6366f1,stroke:#4338ca,stroke-width:2px,color:#fff
+    style Core fill:#8b5cf6,stroke:#6d28d9,stroke-width:2px,color:#fff
+    style Data fill:#475569,stroke:#334155,stroke-width:2px,color:#fff
+    style RAG fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
+    style Agent fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff
+    style News fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#000
+    style Term fill:#f3e8ff,stroke:#8b5cf6,stroke-width:2px,color:#000
