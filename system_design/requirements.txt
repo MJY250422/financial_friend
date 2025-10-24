@@ -1,0 +1,17 @@
+# FastAPI 및 서버
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# 데이터베이스
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+
+# 데이터 검증
+pydantic[email]==2.5.3
+
+# 비밀번호 해싱
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# 환경변수 관리
+python-dotenv==1.0.0

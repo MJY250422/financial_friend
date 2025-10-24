@@ -109,6 +109,7 @@ GLOSSARY = {
     }
 }
 
+# 샘플 뉴스 데이터
 NEWS_ARTICLES = [
     {
         "id": 1,
